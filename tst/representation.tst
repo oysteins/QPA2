@@ -4,7 +4,10 @@ gap> START_TEST( "representation" );
 gap> A := LeftNakayamaAlgebra( Rationals, [ 3, 2, 1 ] );;
 gap> R := QuiverRepresentation( A, [ 2, 2, 1 ], [ [ 1, 1, 0, 0 ], [ 1, 1 ] ] );;
 gap> f := TopProjection( R );;
-gap> p := ProjectiveCover( Range( f ) );;
+gap> range_f := Range( f );;
+gap> IsQuiverRepresentation( range_f );
+true
+gap> p := ProjectiveCover( range_f );;
 gap> l := ProjectiveLift( p, f );;
 gap> PreCompose( l, f ) = p;
 true
